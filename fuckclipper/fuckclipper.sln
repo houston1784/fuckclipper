@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fuckclipper", "fuckclipper\fuckclipper.vcxproj", "{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Debug|x64.ActiveCfg = Debug|x64
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Debug|x64.Build.0 = Debug|x64
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Debug|x86.ActiveCfg = Debug|Win32
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Debug|x86.Build.0 = Debug|Win32
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Release|x64.ActiveCfg = Release|x64
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Release|x64.Build.0 = Release|x64
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Release|x86.ActiveCfg = Release|Win32
+		{5F5A1153-B9C1-46F3-8A4E-AEF3C60AD3B5}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C16A6684-3FA5-4520-AC98-F1C613D4C856}
+	EndGlobalSection
+EndGlobal
